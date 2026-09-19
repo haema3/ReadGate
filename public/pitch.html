@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="ReadGate hackathon presentation">
     <title>ReadGate | Hackathon Pitch</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css">
     <style>
+      @font-face { font-family: 'Paperozi'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-7Bold.woff2') format('woff2'); font-weight: 700; font-display: swap; }
       :root { --ink: #17211e; --paper: #f7f7f2; --green: #23744c; --deep-green: #155137; --mint: #d8efbc; --orange: #e7803e; --yellow: #f6c95d; --line: #cad6cd; }
       * { box-sizing: border-box; }
       html, body { min-width: 980px; min-height: 100%; }
-      body { margin: 0; overflow: hidden; background: var(--ink); color: var(--ink); font-family: "IBM Plex Sans KR", sans-serif; }
+      body { margin: 0; overflow: hidden; background: var(--ink); color: var(--ink); font-family: "Wanted Sans Variable", "Wanted Sans", sans-serif; }
       button, a { font: inherit; }
       button:focus-visible, a:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
       .deck { height: 100svh; overflow: hidden; }
@@ -25,41 +25,42 @@
       .slide-c { background: #e7efe4; }
       .slide-d { background: var(--ink); color: var(--paper); }
       .slide-e { background: #f1eee6; }
-      .slide-no { position: absolute; top: 28px; left: clamp(28px, 8vw, 132px); color: var(--green); font: 500 12px "DM Mono", monospace; letter-spacing: .08em; }
+      .slide-no { position: absolute; top: 28px; left: clamp(28px, 8vw, 132px); color: var(--green); font: 500 12px "Wanted Sans Variable", sans-serif; letter-spacing: .08em; }
       .slide-d .slide-no { color: var(--mint); }
-      .eyebrow { margin: 0 0 16px; color: var(--green); font: 500 12px "DM Mono", monospace; letter-spacing: .1em; text-transform: uppercase; }
+      .eyebrow { margin: 0 0 16px; color: var(--green); font: 500 12px "Wanted Sans Variable", sans-serif; letter-spacing: .1em; text-transform: uppercase; }
       .slide-d .eyebrow { color: var(--mint); }
       h1, h2, h3, p { margin-top: 0; }
-      h1, h2 { margin-bottom: 22px; font-family: "Gowun Batang", serif; font-weight: 700; letter-spacing: 0; line-height: 1.12; }
+      h1, h2, h3 { font-family: "Paperozi", sans-serif; font-weight: 700; }
+      h1, h2 { margin-bottom: 22px; letter-spacing: 0; line-height: 1.12; }
       h1 { max-width: 720px; font-size: clamp(46px, 6.2vw, 88px); }
       h2 { max-width: 720px; font-size: clamp(37px, 5vw, 70px); }
       .lead { max-width: 620px; margin-bottom: 0; color: #425149; font-size: clamp(16px, 1.5vw, 21px); line-height: 1.8; }
       .slide-d .lead { color: #c4d2c9; }
-      .wordmark { margin-bottom: 25px; color: var(--ink); font: 500 clamp(14px, 1.5vw, 18px) "DM Mono", monospace; letter-spacing: .14em; }
+      .wordmark { margin-bottom: 25px; color: var(--ink); font: 500 clamp(14px, 1.5vw, 18px) "Wanted Sans Variable", sans-serif; letter-spacing: .14em; }
       .wordmark span { color: var(--orange); }
       .photo-frame { margin: 0; min-height: min(68vh, 650px); overflow: hidden; border: 1px solid rgba(23,33,30,.14); border-radius: 6px; background: var(--deep-green); box-shadow: 18px 18px 0 var(--orange); }
       .photo-frame img { width: 100%; height: 100%; min-height: min(68vh, 650px); display: block; object-fit: cover; filter: saturate(.76) contrast(1.05); }
-      .photo-frame figcaption { position: absolute; right: 20px; bottom: 17px; max-width: 240px; padding: 10px 12px; background: var(--paper); color: var(--ink); font: 11px/1.45 "DM Mono", monospace; }
+      .photo-frame figcaption { position: absolute; right: 20px; bottom: 17px; max-width: 240px; padding: 10px 12px; background: var(--paper); color: var(--ink); font: 11px/1.45 "Wanted Sans Variable", sans-serif; }
       .flow { display: grid; gap: 0; max-width: 620px; border-top: 1px solid rgba(72,65,42,.26); }
       .flow-item { display: grid; grid-template-columns: 54px minmax(0, 1fr) auto; gap: 18px; align-items: center; padding: 19px 0; border-bottom: 1px solid rgba(72,65,42,.26); }
-      .flow-number { color: var(--orange); font: 500 13px "DM Mono", monospace; }
+      .flow-number { color: var(--orange); font: 500 13px "Wanted Sans Variable", sans-serif; }
       .flow-item strong { font-size: clamp(18px, 2vw, 25px); }
       .flow-item span:last-child { color: #72583d; font-size: 13px; }
-      .problem-list { display: grid; gap: 12px; max-width: 610px; margin-top: 32px; }.problem-list div { display: grid; grid-template-columns: 38px 1fr; gap: 13px; align-items: center; padding: 14px 0; border-top: 1px solid rgba(23,33,30,.18); }.problem-list div:last-child { border-bottom: 1px solid rgba(23,33,30,.18); }.problem-list b { color: var(--orange); font: 500 12px "DM Mono", monospace; }.problem-list span { color: #4d5d54; font-size: 15px; }
+      .problem-list { display: grid; gap: 12px; max-width: 610px; margin-top: 32px; }.problem-list div { display: grid; grid-template-columns: 38px 1fr; gap: 13px; align-items: center; padding: 14px 0; border-top: 1px solid rgba(23,33,30,.18); }.problem-list div:last-child { border-bottom: 1px solid rgba(23,33,30,.18); }.problem-list b { color: var(--orange); font: 500 12px "Wanted Sans Variable", sans-serif; }.problem-list span { color: #4d5d54; font-size: 15px; }
       .browser { width: min(100%, 520px); justify-self: center; border: 1px solid #b7c6ba; border-radius: 6px; overflow: hidden; background: var(--paper); box-shadow: 14px 14px 0 rgba(35,116,76,.24); }
       .browser-bar { height: 36px; display: flex; align-items: center; gap: 6px; padding: 0 14px; border-bottom: 1px solid var(--line); background: #fff; }
       .browser-bar i { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); }.browser-bar i:nth-child(2) { background: var(--yellow); }.browser-bar i:nth-child(3) { background: var(--green); }
       .browser-page { padding: clamp(20px, 4vw, 38px); }
-      .browser-brand { margin-bottom: 30px; font: 500 13px "DM Mono", monospace; letter-spacing: .1em; }.browser-brand b { color: var(--orange); }
-      .browser-title { max-width: 360px; margin-bottom: 24px; font: 700 clamp(30px, 4vw, 48px)/1.2 "Gowun Batang", serif; }
+      .browser-brand { margin-bottom: 30px; font: 500 13px "Wanted Sans Variable", sans-serif; letter-spacing: .1em; }.browser-brand b { color: var(--orange); }
+      .browser-title { max-width: 360px; margin-bottom: 24px; font: 700 clamp(30px, 4vw, 48px)/1.2 "Paperozi", sans-serif; }
       .browser-copy { height: 10px; margin: 11px 0; background: #d9e2da; }.browser-copy.short { width: 64%; }.browser-copy.medium { width: 82%; }
       .browser-check { margin-top: 30px; display: flex; justify-content: space-between; gap: 10px; align-items: center; padding: 15px; border-left: 4px solid var(--orange); background: #edf3e8; font-size: 13px; }.browser-check b { color: var(--green); }
       .evidence { display: grid; gap: 14px; max-width: 620px; }
       .evidence-card { display: grid; grid-template-columns: 120px 1fr; gap: 16px; padding: 21px 0; border-top: 1px solid #b9c9bb; }.evidence-card:last-child { border-bottom: 1px solid #b9c9bb; }
-      .evidence-label { color: var(--green); font: 500 12px "DM Mono", monospace; letter-spacing: .08em; }.evidence-card p { margin: 0; color: #4f5e55; line-height: 1.65; }.tag { display: inline-flex; width: fit-content; align-items: center; min-height: 26px; margin-bottom: 9px; padding: 0 8px; border-radius: 3px; background: var(--mint); color: var(--deep-green); font: 500 11px "DM Mono", monospace; }
-      .status-panel { width: min(100%, 460px); justify-self: center; padding: clamp(28px, 4vw, 50px); border: 1px solid #9ab39f; background: var(--paper); box-shadow: 14px 14px 0 var(--green); }.status-panel h3 { margin-bottom: 28px; font-family: "Gowun Batang", serif; font-size: 32px; }.status-row { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-top: 1px solid var(--line); font-size: 14px; }.status-row b { color: var(--green); font: 500 12px "DM Mono", monospace; }.status-row b.warn { color: #a3651f; }
-      .architecture { width: min(100%, 500px); justify-self: center; display: grid; gap: 14px; }.architecture > div { padding: 18px 20px; border: 1px solid #aabcb0; background: var(--paper); box-shadow: 7px 7px 0 rgba(35,116,76,.16); }.architecture strong { display: block; margin-bottom: 7px; color: var(--deep-green); font: 500 12px "DM Mono", monospace; letter-spacing: .08em; }.architecture span { color: #536159; font-size: 14px; line-height: 1.55; }.architecture .route { display: grid; grid-template-columns: 1fr 34px 1fr; gap: 8px; padding: 0; border: 0; background: transparent; box-shadow: none; text-align: center; }.architecture .route span { padding: 13px 9px; border: 1px solid #b8cbbd; background: #fff; font: 500 11px/1.3 "DM Mono", monospace; }.architecture .route i { align-self: center; color: var(--orange); font-style: normal; font-size: 20px; }
-      .demo-frame { width: min(100%, 520px); justify-self: center; min-height: 380px; display: grid; place-items: center; padding: clamp(28px, 5vw, 60px); border: 1px solid #486355; background: #213a2d; box-shadow: 14px 14px 0 var(--orange); }.demo-frame > div { max-width: 330px; }.demo-frame p { margin-bottom: 17px; color: var(--mint); font: 500 12px "DM Mono", monospace; letter-spacing: .08em; }.demo-frame strong { display: block; margin-bottom: 26px; font: 700 clamp(34px, 4vw, 53px)/1.25 "Gowun Batang", serif; }.demo-frame a { display: inline-flex; min-height: 46px; align-items: center; padding: 0 17px; border-radius: 4px; background: var(--mint); color: var(--deep-green); font-weight: 700; text-decoration: none; }
+      .evidence-label { color: var(--green); font: 500 12px "Wanted Sans Variable", sans-serif; letter-spacing: .08em; }.evidence-card p { margin: 0; color: #4f5e55; line-height: 1.65; }.tag { display: inline-flex; width: fit-content; align-items: center; min-height: 26px; margin-bottom: 9px; padding: 0 8px; border-radius: 3px; background: var(--mint); color: var(--deep-green); font: 500 11px "Wanted Sans Variable", sans-serif; }
+      .status-panel { width: min(100%, 460px); justify-self: center; padding: clamp(28px, 4vw, 50px); border: 1px solid #9ab39f; background: var(--paper); box-shadow: 14px 14px 0 var(--green); }.status-panel h3 { margin-bottom: 28px; font-size: 32px; }.status-row { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-top: 1px solid var(--line); font-size: 14px; }.status-row b { color: var(--green); font: 500 12px "Wanted Sans Variable", sans-serif; }.status-row b.warn { color: #a3651f; }
+      .architecture { width: min(100%, 500px); justify-self: center; display: grid; gap: 14px; }.architecture > div { padding: 18px 20px; border: 1px solid #aabcb0; background: var(--paper); box-shadow: 7px 7px 0 rgba(35,116,76,.16); }.architecture strong { display: block; margin-bottom: 7px; color: var(--deep-green); font: 500 12px "Wanted Sans Variable", sans-serif; letter-spacing: .08em; }.architecture span { color: #536159; font-size: 14px; line-height: 1.55; }.architecture .route { display: grid; grid-template-columns: 1fr 34px 1fr; gap: 8px; padding: 0; border: 0; background: transparent; box-shadow: none; text-align: center; }.architecture .route span { padding: 13px 9px; border: 1px solid #b8cbbd; background: #fff; font: 500 11px/1.3 "Wanted Sans Variable", sans-serif; }.architecture .route i { align-self: center; color: var(--orange); font-style: normal; font-size: 20px; }
+      .demo-frame { width: min(100%, 520px); justify-self: center; min-height: 380px; display: grid; place-items: center; padding: clamp(28px, 5vw, 60px); border: 1px solid #486355; background: #213a2d; box-shadow: 14px 14px 0 var(--orange); }.demo-frame > div { max-width: 330px; }.demo-frame p { margin-bottom: 17px; color: var(--mint); font: 500 12px "Wanted Sans Variable", sans-serif; letter-spacing: .08em; }.demo-frame strong { display: block; margin-bottom: 26px; font: 700 clamp(34px, 4vw, 53px)/1.25 "Paperozi", sans-serif; }.demo-frame a { display: inline-flex; min-height: 46px; align-items: center; padding: 0 17px; border-radius: 4px; background: var(--mint); color: var(--deep-green); font-weight: 700; text-decoration: none; }
       .speaker-note { position: absolute; right: clamp(44px, 8vw, 132px); bottom: 27px; max-width: 560px; color: rgba(23,33,30,.58); font-size: 12px; line-height: 1.5; }.slide-d .speaker-note { color: rgba(247,247,242,.58); }
       @page { size: 16in 9in; margin: 0; }
       @media print { html, body { width: 16in; min-width: 0; height: auto; }.deck, .track { width: 16in; height: auto; overflow: visible; }.track { display: block !important; transform: none !important; transition: none; }.slide { width: 16in; height: 9in; min-height: 9in; break-after: page; page-break-after: always; }.slide:last-child { break-after: auto; page-break-after: auto; }.slide::before { print-color-adjust: exact; -webkit-print-color-adjust: exact; }.speaker-note { bottom: .3in; }.photo-frame, .browser, .status-panel, .architecture, .demo-frame { print-color-adjust: exact; -webkit-print-color-adjust: exact; } }

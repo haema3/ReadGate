@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
-const ttlMinutes = Number(process.env.DAYTONA_TTL_MINUTES || 60);
+const ttlMinutes = Number(process.env.DAYTONA_TTL_MINUTES || 180);
 const publicPreview = process.env.DAYTONA_PUBLIC_PREVIEW === 'true';
 
 if (!process.env.DAYTONA_API_KEY) {
@@ -48,8 +48,6 @@ if (!process.env.DAYTONA_API_KEY) {
     }
     const install = await sandbox.process.executeCommand('npm ci --omit=dev', undefined, undefined, 120);
     if (install.exitCode !== 0) throw new Error(install.result || 'Daytona dependency installation failed.');
-    const sessionId = 'readgate-server';
-    await sandbox.process.createSession(sessionId);
     const serverEnvironment = { PORT: '3000' };
     if (process.env.NOSANA_INFERENCE_URL) serverEnvironment.NOSANA_INFERENCE_URL = process.env.NOSANA_INFERENCE_URL;
     if (process.env.NOSANA_MODEL) serverEnvironment.NOSANA_MODEL = process.env.NOSANA_MODEL;
@@ -60,6 +58,8 @@ if (!process.env.DAYTONA_API_KEY) {
     if (process.env.OPENROUTER_API_KEY) serverEnvironment.OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
     if (process.env.OPENROUTER_MODEL) serverEnvironment.OPENROUTER_MODEL = process.env.OPENROUTER_MODEL;
     await sandbox.updateEnv(serverEnvironment);
+    const sessionId = 'readgate-server';
+    await sandbox.process.createSession(sessionId);
     await sandbox.process.executeSessionCommand(sessionId, {
       command: 'node server.js',
       runAsync: true

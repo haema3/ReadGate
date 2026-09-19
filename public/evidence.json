@@ -7,9 +7,9 @@
     "cleanup": "deleted",
     "deployment": {
       "status": "running",
-      "resourceId": "6c076ae0-548e-4e0b-89f2-efd0f8942cde",
-      "startedAt": "2026-09-19T14:23:46+09:00",
-      "ttlMinutes": 60,
+      "resourceId": "d2ba59c3-c7aa-4755-bc13-622880dc790a",
+      "startedAt": "2026-09-19T15:27:30+09:00",
+      "ttlMinutes": 180,
       "health": "ok",
       "preview": "public"
     }

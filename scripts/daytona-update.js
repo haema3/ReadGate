@@ -19,6 +19,7 @@ if (!process.env.DAYTONA_API_KEY || !sandboxId) {
     ['server.js', 'server.js'],
     ['providers/nosana.js', 'providers/nosana.js'],
     ['providers/openrouter.js', 'providers/openrouter.js'],
+    ['public/styles.css', 'public/styles.css'],
     ['public/app.js', 'public/app.js'],
     ['public/evidence.json', 'public/evidence.json']
   ]) {
