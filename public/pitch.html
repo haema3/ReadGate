@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ReadGate hackathon presentation">
+    <title>ReadGate | Hackathon Pitch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root { --ink: #17211e; --paper: #f7f7f2; --green: #23744c; --deep-green: #155137; --mint: #d8efbc; --orange: #e7803e; --yellow: #f6c95d; --line: #cad6cd; }
+      * { box-sizing: border-box; }
+      html, body { min-width: 980px; min-height: 100%; }
+      body { margin: 0; overflow: hidden; background: var(--ink); color: var(--ink); font-family: "IBM Plex Sans KR", sans-serif; }
+      button, a { font: inherit; }
+      button:focus-visible, a:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+      .deck { height: 100svh; overflow: hidden; }
+      .track { display: flex; height: 100%; transition: transform 580ms cubic-bezier(.2,.8,.2,1); }
+      .slide { flex: 0 0 100%; min-width: 0; min-height: 100%; display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, .9fr); gap: clamp(36px, 6vw, 100px); align-items: center; padding: clamp(78px, 10vh, 118px) clamp(44px, 8vw, 132px) clamp(70px, 9vh, 108px); position: relative; overflow: hidden; }
+      .slide::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .38; background-image: linear-gradient(90deg, transparent 49.8%, rgba(23,33,30,.08) 50%, transparent 50.2%), linear-gradient(rgba(23,33,30,.055) 1px, transparent 1px); background-size: 96px 100%, 100% 72px; }
+      .slide > * { position: relative; z-index: 1; }
+      .slide-a { background: #edf3e8; }
+      .slide-b { background: #f5e9cb; }
+      .slide-c { background: #e7efe4; }
+      .slide-d { background: var(--ink); color: var(--paper); }
+      .slide-e { background: #f1eee6; }
+      .slide-no { position: absolute; top: 28px; left: clamp(28px, 8vw, 132px); color: var(--green); font: 500 12px "DM Mono", monospace; letter-spacing: .08em; }
+      .slide-d .slide-no { color: var(--mint); }
+      .eyebrow { margin: 0 0 16px; color: var(--green); font: 500 12px "DM Mono", monospace; letter-spacing: .1em; text-transform: uppercase; }
+      .slide-d .eyebrow { color: var(--mint); }
+      h1, h2, h3, p { margin-top: 0; }
+      h1, h2 { margin-bottom: 22px; font-family: "Gowun Batang", serif; font-weight: 700; letter-spacing: 0; line-height: 1.12; }
+      h1 { max-width: 720px; font-size: clamp(46px, 6.2vw, 88px); }
+      h2 { max-width: 720px; font-size: clamp(37px, 5vw, 70px); }
+      .lead { max-width: 620px; margin-bottom: 0; color: #425149; font-size: clamp(16px, 1.5vw, 21px); line-height: 1.8; }
+      .slide-d .lead { color: #c4d2c9; }
+      .wordmark { margin-bottom: 25px; color: var(--ink); font: 500 clamp(14px, 1.5vw, 18px) "DM Mono", monospace; letter-spacing: .14em; }
+      .wordmark span { color: var(--orange); }
+      .photo-frame { margin: 0; min-height: min(68vh, 650px); overflow: hidden; border: 1px solid rgba(23,33,30,.14); border-radius: 6px; background: var(--deep-green); box-shadow: 18px 18px 0 var(--orange); }
+      .photo-frame img { width: 100%; height: 100%; min-height: min(68vh, 650px); display: block; object-fit: cover; filter: saturate(.76) contrast(1.05); }
+      .photo-frame figcaption { position: absolute; right: 20px; bottom: 17px; max-width: 240px; padding: 10px 12px; background: var(--paper); color: var(--ink); font: 11px/1.45 "DM Mono", monospace; }
+      .flow { display: grid; gap: 0; max-width: 620px; border-top: 1px solid rgba(72,65,42,.26); }
+      .flow-item { display: grid; grid-template-columns: 54px minmax(0, 1fr) auto; gap: 18px; align-items: center; padding: 19px 0; border-bottom: 1px solid rgba(72,65,42,.26); }
+      .flow-number { color: var(--orange); font: 500 13px "DM Mono", monospace; }
+      .flow-item strong { font-size: clamp(18px, 2vw, 25px); }
+      .flow-item span:last-child { color: #72583d; font-size: 13px; }
+      .problem-list { display: grid; gap: 12px; max-width: 610px; margin-top: 32px; }.problem-list div { display: grid; grid-template-columns: 38px 1fr; gap: 13px; align-items: center; padding: 14px 0; border-top: 1px solid rgba(23,33,30,.18); }.problem-list div:last-child { border-bottom: 1px solid rgba(23,33,30,.18); }.problem-list b { color: var(--orange); font: 500 12px "DM Mono", monospace; }.problem-list span { color: #4d5d54; font-size: 15px; }
+      .browser { width: min(100%, 520px); justify-self: center; border: 1px solid #b7c6ba; border-radius: 6px; overflow: hidden; background: var(--paper); box-shadow: 14px 14px 0 rgba(35,116,76,.24); }
+      .browser-bar { height: 36px; display: flex; align-items: center; gap: 6px; padding: 0 14px; border-bottom: 1px solid var(--line); background: #fff; }
+      .browser-bar i { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); }.browser-bar i:nth-child(2) { background: var(--yellow); }.browser-bar i:nth-child(3) { background: var(--green); }
+      .browser-page { padding: clamp(20px, 4vw, 38px); }
+      .browser-brand { margin-bottom: 30px; font: 500 13px "DM Mono", monospace; letter-spacing: .1em; }.browser-brand b { color: var(--orange); }
+      .browser-title { max-width: 360px; margin-bottom: 24px; font: 700 clamp(30px, 4vw, 48px)/1.2 "Gowun Batang", serif; }
+      .browser-copy { height: 10px; margin: 11px 0; background: #d9e2da; }.browser-copy.short { width: 64%; }.browser-copy.medium { width: 82%; }
+      .browser-check { margin-top: 30px; display: flex; justify-content: space-between; gap: 10px; align-items: center; padding: 15px; border-left: 4px solid var(--orange); background: #edf3e8; font-size: 13px; }.browser-check b { color: var(--green); }
+      .evidence { display: grid; gap: 14px; max-width: 620px; }
+      .evidence-card { display: grid; grid-template-columns: 120px 1fr; gap: 16px; padding: 21px 0; border-top: 1px solid #b9c9bb; }.evidence-card:last-child { border-bottom: 1px solid #b9c9bb; }
+      .evidence-label { color: var(--green); font: 500 12px "DM Mono", monospace; letter-spacing: .08em; }.evidence-card p { margin: 0; color: #4f5e55; line-height: 1.65; }.tag { display: inline-flex; width: fit-content; align-items: center; min-height: 26px; margin-bottom: 9px; padding: 0 8px; border-radius: 3px; background: var(--mint); color: var(--deep-green); font: 500 11px "DM Mono", monospace; }
+      .status-panel { width: min(100%, 460px); justify-self: center; padding: clamp(28px, 4vw, 50px); border: 1px solid #9ab39f; background: var(--paper); box-shadow: 14px 14px 0 var(--green); }.status-panel h3 { margin-bottom: 28px; font-family: "Gowun Batang", serif; font-size: 32px; }.status-row { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-top: 1px solid var(--line); font-size: 14px; }.status-row b { color: var(--green); font: 500 12px "DM Mono", monospace; }.status-row b.warn { color: #a3651f; }
+      .architecture { width: min(100%, 500px); justify-self: center; display: grid; gap: 14px; }.architecture > div { padding: 18px 20px; border: 1px solid #aabcb0; background: var(--paper); box-shadow: 7px 7px 0 rgba(35,116,76,.16); }.architecture strong { display: block; margin-bottom: 7px; color: var(--deep-green); font: 500 12px "DM Mono", monospace; letter-spacing: .08em; }.architecture span { color: #536159; font-size: 14px; line-height: 1.55; }.architecture .route { display: grid; grid-template-columns: 1fr 34px 1fr; gap: 8px; padding: 0; border: 0; background: transparent; box-shadow: none; text-align: center; }.architecture .route span { padding: 13px 9px; border: 1px solid #b8cbbd; background: #fff; font: 500 11px/1.3 "DM Mono", monospace; }.architecture .route i { align-self: center; color: var(--orange); font-style: normal; font-size: 20px; }
+      .demo-frame { width: min(100%, 520px); justify-self: center; min-height: 380px; display: grid; place-items: center; padding: clamp(28px, 5vw, 60px); border: 1px solid #486355; background: #213a2d; box-shadow: 14px 14px 0 var(--orange); }.demo-frame > div { max-width: 330px; }.demo-frame p { margin-bottom: 17px; color: var(--mint); font: 500 12px "DM Mono", monospace; letter-spacing: .08em; }.demo-frame strong { display: block; margin-bottom: 26px; font: 700 clamp(34px, 4vw, 53px)/1.25 "Gowun Batang", serif; }.demo-frame a { display: inline-flex; min-height: 46px; align-items: center; padding: 0 17px; border-radius: 4px; background: var(--mint); color: var(--deep-green); font-weight: 700; text-decoration: none; }
+      .speaker-note { position: absolute; right: clamp(44px, 8vw, 132px); bottom: 27px; max-width: 560px; color: rgba(23,33,30,.58); font-size: 12px; line-height: 1.5; }.slide-d .speaker-note { color: rgba(247,247,242,.58); }
+      @page { size: 16in 9in; margin: 0; }
+      @media print { html, body { width: 16in; min-width: 0; height: auto; }.deck, .track { width: 16in; height: auto; overflow: visible; }.track { display: block !important; transform: none !important; transition: none; }.slide { width: 16in; height: 9in; min-height: 9in; break-after: page; page-break-after: always; }.slide:last-child { break-after: auto; page-break-after: auto; }.slide::before { print-color-adjust: exact; -webkit-print-color-adjust: exact; }.speaker-note { bottom: .3in; }.photo-frame, .browser, .status-panel, .architecture, .demo-frame { print-color-adjust: exact; -webkit-print-color-adjust: exact; } }
+    </style>
+  </head>
+  <body>
+    <main class="deck" aria-label="ReadGate 발표 슬라이드">
+      <div class="track" id="track">
+        <section class="slide slide-a" aria-labelledby="slide-1-title">
+          <span class="slide-no">01 / 05</span>
+          <div>
+            <p class="wordmark">READGATE<span>.</span></p>
+            <p class="eyebrow">Reading, verified</p>
+            <h1 id="slide-1-title">넘긴 문단을,<br>이해한 문단으로.</h1>
+            <p class="lead">스크롤과 유효 체류 신호로 놓친 문단을 찾고, 짧은 퀴즈를 통과해야 다음 단계가 열리는 임베더블 SDK입니다.</p>
+            <div class="problem-list"><div><b>01</b><span>중요한 안내를 지나쳤는지, 다음 단계에서만 확인</span></div><div><b>02</b><span>읽기 흐름을 막지 않고 필요한 문단만 다시 질문</span></div><div><b>03</b><span>브라우저 상태가 아닌 서버 채점으로 진행을 제어</span></div></div>
+          </div>
+          <figure class="photo-frame"><img src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=1200&q=85" alt="노트북으로 문서를 읽는 작업 공간"><figcaption>읽기 흐름을 끊지 않고 필요한 부분만 확인합니다.</figcaption></figure>
+          <p class="speaker-note">발표 포인트: 행동 신호는 이해도의 증명이 아니라, 다시 확인할 문단을 찾기 위한 최소 단서입니다.</p>
+        </section>
+
+        <section class="slide slide-b" aria-labelledby="slide-2-title">
+          <span class="slide-no">02 / 05</span>
+          <div>
+            <p class="eyebrow">One-line SDK</p>
+            <h2 id="slide-2-title">읽는 흐름은 그대로,<br>다음 단계만 확인.</h2>
+            <div class="flow"><div class="flow-item"><span class="flow-number">01</span><strong>본문을 관찰</strong><span>노출 · 유효 체류</span></div><div class="flow-item"><span class="flow-number">02</span><strong>놓친 곳을 확인</strong><span>필요한 문단만</span></div><div class="flow-item"><span class="flow-number">03</span><strong>정답 후 진행</strong><span>서버 채점</span></div></div>
+          </div>
+          <div class="browser" aria-label="ReadGate 데모 화면 요약"><div class="browser-bar"><i></i><i></i><i></i></div><div class="browser-page"><div class="browser-brand">READGATE<b>.</b></div><div class="browser-title">빠르게 넘긴 문단이 있는지 확인해 보세요.</div><div class="browser-copy"></div><div class="browser-copy medium"></div><div class="browser-copy short"></div><div class="browser-check"><span>확인 필요 · 데모 흐름</span><b>QUIZ</b></div></div></div>
+          <p class="speaker-note">발표 포인트: SDK는 한 줄로 연결되며, 유효 체류 시간은 숨김 탭과 포커스를 잃은 시간을 제외합니다.</p>
+        </section>
+
+        <section class="slide slide-c" aria-labelledby="slide-3-title">
+          <span class="slide-no">03 / 05</span>
+          <div>
+            <p class="eyebrow">Real execution</p>
+            <h2 id="slide-3-title">보여주는 데모와<br>실행한 증빙을 연결.</h2>
+            <div class="evidence"><div class="evidence-card"><div class="evidence-label">DAYTONA</div><div><span class="tag">PUBLIC SANDBOX</span><p>격리된 환경에서 서버와 SDK를 실행하고, 공개 preview의 health endpoint로 배포 상태를 확인했습니다.</p></div></div><div class="evidence-card"><div class="evidence-label">NOSANA</div><div><span class="tag">PRIMARY CHECK</span><p>Nosana SDK로 deployment와 job 상태를 확인합니다. Daytona의 조직 egress 제한에서는 직접 연결이 차단됩니다.</p></div></div><div class="evidence-card"><div class="evidence-label">OPENROUTER</div><div><span class="tag">ACTIVE FALLBACK</span><p>Nosana 연결 실패 시 서버에서만 인증하여 fallback 상태를 유지합니다. 키는 브라우저에 전달하지 않습니다.</p></div></div></div>
+          </div>
+          <aside class="status-panel" aria-label="현재 배포 상태"><p class="eyebrow">Live provider status</p><h3>연결은<br>끊기지 않게.</h3><div class="status-row"><span>Daytona health</span><b>OK</b></div><div class="status-row"><span>Nosana primary</span><b class="warn">RESTRICTED</b></div><div class="status-row"><span>OpenRouter fallback</span><b>CONNECTED</b></div></aside>
+          <p class="speaker-note">발표 포인트: 현재 운영 상태와 과거 실행 증빙을 구분합니다. 연결되지 않은 Nosana를 성공으로 표시하지 않습니다.</p>
+        </section>
+
+        <section class="slide slide-d" aria-labelledby="slide-4-title">
+          <span class="slide-no">04 / 05</span>
+          <div>
+            <p class="eyebrow">Resilient provider path</p>
+            <h2 id="slide-4-title">주 경로가 멈춰도,<br>데모는 멈추지 않게.</h2>
+            <p class="lead">Nosana 연결 상태 확인을 우선 시도하고, Daytona egress 정책 때문에 실패하면 서버 내부에서만 OpenRouter 연결 상태로 전환합니다.</p>
+          </div>
+          <div class="architecture" aria-label="provider fallback architecture"><div><strong>01 · BROWSER</strong><span>키 없이 `/api/nosana/status`를 호출하고, provider 상태만 표시합니다.</span></div><div><strong>02 · READGATE SERVER</strong><span>Nosana SDK 상태를 먼저 확인합니다. 실패만 fallback 조건이 됩니다.</span></div><div class="route"><span>NOSANA SDK<br>primary</span><i>→</i><span>OPENROUTER<br>fallback</span></div><div><strong>03 · SECURITY BOUNDARY</strong><span>API 키와 원본 provider 응답은 서버 환경에만 남기고 브라우저에는 보내지 않습니다.</span></div></div>
+          <p class="speaker-note">발표 포인트: fallback은 모델 추론을 대체했다고 주장하지 않습니다. 현재는 연결 상태를 안전하게 유지하는 경로입니다.</p>
+        </section>
+
+        <section class="slide slide-e" aria-labelledby="slide-5-title">
+          <span class="slide-no">05 / 05</span>
+          <div>
+            <p class="eyebrow">Live demo</p>
+            <h2 id="slide-5-title">읽었다는 신호를,<br>다음 경험으로.</h2>
+            <p class="lead">빠르게 넘긴 문단만 확인하고, 오답이면 잠금을 유지하며, 모든 정답 뒤에만 다음 단계를 엽니다.</p>
+          </div>
+          <div class="demo-frame"><div><p>READGATE / HACKATHON PROTOTYPE</p><strong>직접<br>확인해 보세요.</strong><a href="/">라이브 데모 열기</a></div></div>
+          <p class="speaker-note">발표 순서: 문단을 빠르게 넘기기 → 다음 단계 선택 → 오답 확인 → 정답 후 진행 → 독립 HTML 예제로 SDK 재사용 확인.</p>
+        </section>
+      </div>
+    </main>
+    <script>
+      const slides = [...document.querySelectorAll('.slide')];
+      const track = document.querySelector('#track');
+      let current = 0;
+      function show(index) {
+        current = Math.max(0, Math.min(index, slides.length - 1));
+        track.style.transform = `translateX(-${current * 100}%)`;
+      }
+      document.addEventListener('keydown', (event) => { if (event.key === 'ArrowLeft' || event.key === 'PageUp') show(current - 1); if (event.key === 'ArrowRight' || event.key === 'PageDown' || event.key === ' ') { event.preventDefault(); show(current + 1); } if (event.key === 'Home') show(0); if (event.key === 'End') show(slides.length - 1); });
+      show(0);
+    </script>
+  </body>
+</html>

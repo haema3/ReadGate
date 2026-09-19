@@ -1,0 +1,37 @@
+{
+  "version": "0.1",
+  "type": "container",
+  "meta": {
+    "trigger": "cli",
+    "system_resources": {
+      "required_vram": 4
+    }
+  },
+  "ops": [
+    {
+      "type": "container/run",
+      "id": "readgate-question-worker",
+      "args": {
+        "image": "REPLACE_WITH_A_PINNED_PUBLIC_READGATE_IMAGE",
+        "cmd": [
+          "node",
+          "worker.js"
+        ],
+        "gpu": true,
+        "expose": [
+          {
+            "port": 3000,
+            "health_checks": [
+              {
+                "type": "http",
+                "path": "/health",
+                "method": "GET",
+                "expected_status": 200
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

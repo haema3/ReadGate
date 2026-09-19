@@ -1,0 +1,30 @@
+{
+  "name": "readgate-hackathon-demo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "start:local": "node --env-file=.env.local server.js",
+    "test": "node --test",
+    "daytona:verify": "node scripts/daytona-verify.js",
+    "daytona:verify:local": "node --env-file=.env.local scripts/daytona-verify.js",
+    "daytona:run": "node scripts/daytona-run.js",
+    "daytona:run:local": "node --env-file=.env.local scripts/daytona-run.js",
+    "daytona:update": "node scripts/daytona-update.js",
+    "daytona:update:local": "node --env-file=.env.local scripts/daytona-update.js",
+    "daytona:diagnose-nosana": "node scripts/daytona-nosana-diagnose.js",
+    "daytona:diagnose-nosana:local": "node --env-file=.env.local scripts/daytona-nosana-diagnose.js",
+    "daytona:stop": "node scripts/daytona-stop.js",
+    "daytona:stop:local": "node --env-file=.env.local scripts/daytona-stop.js",
+    "nosana:validate": "node scripts/nosana-validate.js"
+  },
+  "dependencies": {
+    "@daytona/sdk": "0.214.0",
+    "@nosana/kit": "2.13.7"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

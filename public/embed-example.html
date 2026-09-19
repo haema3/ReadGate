@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReadGate 독립 HTML 예제</title>
+    <style>body{max-width:700px;margin:40px auto;padding:0 20px;font:18px/1.8 Georgia,serif;color:#17211e}p{margin:2em 0}button{padding:12px 18px;background:#23744c;color:#fff;border:0;border-radius:4px;font:inherit;font-weight:bold;cursor:pointer}</style>
+    <script defer src="/sdk.js" data-target="#article" data-next="#continue" data-content-id="hackathon-guide-v1"></script>
+  </head>
+  <body>
+    <main><p>독립 HTML 예제</p><article id="article"><h1>같은 SDK로 연결된 안내</h1><p data-readgate-id="schedule" data-readgate-min-ms="1600">참가 확인은 안내를 끝까지 읽는 것에서 시작합니다. 데모 시간과 제출 형식을 체크리스트로 정리하세요.</p><p data-readgate-id="demo" data-readgate-min-ms="1600">ReadGate는 놓친 문단만 짧은 질문으로 되돌려 보고, 정답을 맞힌 뒤 다음 단계로 진행하게 합니다.</p><p data-readgate-id="evidence" data-readgate-min-ms="1600">Daytona 테스트와 Nosana 생성 문항은 실제 실행 기록으로 증빙하며 비밀 값은 표시하지 않습니다.</p><button id="continue" type="button">다음 단계 확인</button></article></main>
+  </body>
+</html>

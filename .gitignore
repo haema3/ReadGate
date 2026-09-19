@@ -1,0 +1,8 @@
+node_modules/
+.env*
+!.env.example
+coverage/
+dist/
+.pdf-render-profile/
+.vscode-pdf-profile/
+ReadGate-pitch.pdf

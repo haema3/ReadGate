@@ -1,0 +1,20 @@
+{
+  "daytona": {
+    "status": "verified",
+    "summary": "원격 샌드박스에서 ReadGate 테스트 3개 통과",
+    "resourceId": "685c0961-ab3f-4dc3-a3d7-e39434dc66ea",
+    "verifiedAt": "2026-09-19T14:16:03+09:00",
+    "cleanup": "deleted",
+    "deployment": {
+      "status": "running",
+      "resourceId": "6c076ae0-548e-4e0b-89f2-efd0f8942cde",
+      "startedAt": "2026-09-19T14:23:46+09:00",
+      "ttlMinutes": 60,
+      "health": "ok",
+      "preview": "public"
+    }
+  },
+  "nosana": {
+    "status": "not-configured"
+  }
+}
